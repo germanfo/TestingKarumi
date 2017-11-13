@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Created by German on 13/11/17.
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 class StringCalculator{
     private final String SPLITTER_COMMA_AND_RETURN = "[,\\n]";
+
 
     public int sum(String param) throws NegativeNumbersException{
 
@@ -148,6 +150,8 @@ public class StringCalculatorTest {
 
         try {
             int sum = stringCalculator.sum("-1,2,-3,4");
+
+            fail("Should be testing negative numbers");
         }catch (NegativeNumbersException negativeNumbersException){
 
             assertArrayEquals(negativeNumbersExpected, negativeNumbersException.getNegativeNumbersFound());
